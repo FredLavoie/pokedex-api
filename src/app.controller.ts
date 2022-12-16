@@ -7,10 +7,8 @@ export class AppController {
   constructor(private readonly prismaService: PrismaService) {}
 
   @Get('pokemon')
-  async getAllPokemon(
-    @Query('page') pageNumber?: string,
-  ): Promise<PokemonModel[]> {
-    const skip = pageNumber ? (Number(pageNumber) - 1) * 50 : 0;
+  async getAllPokemon(@Query('page') page?: string): Promise<PokemonModel[]> {
+    const skip = page ? (Number(page) - 1) * 50 : 0;
     return this.prismaService.pokemon.findMany({
       take: 50,
       skip: skip,

@@ -21,8 +21,8 @@ Follow the steps outlined below to get this API up and running on your local mac
 
 - rename the file `example.data.js` to `data.js`
 - navigate to [this url](https://github.com/fanzeyi/pokemon.json/blob/master/pokedex.json), and copy all the objects into the array in the `data.js` file
-- run `npx prisma init` which will create the table(s) in the database based on the models in the `prisma/schema.prisma` file
-- run `npx prisma seed` which will take the data from `data.js` and insert them into your postgres database
+- run `npx prisma db push` which will create the table(s) in the database based on the models in the `prisma/schema.prisma` file
+- run `npx prisma db seed` which will take the data from `data.js` and insert them into your postgres database
 
 #### [4] Starting the API server
 
