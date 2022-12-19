@@ -27,6 +27,4 @@ Follow the steps outlined below to get this API up and running on your local mac
 #### [4] Starting the API server
 
 - run `yarn start` to startup the API server
-- in a browser window, go to `localhost:3000/api/pokemon/` to see the first 50 pokemon
-- navigate to `localhost:3000/api/pokemon?page=2` (or any page number) to see additional pokemon
-- navigate to `localhost:3000/api/pokemon/25` (or any number you like) so see the details for a specific pokemon
+- in a browser window, go to `localhost:3000/graphql/` to make queries
