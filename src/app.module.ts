@@ -1,11 +1,15 @@
+import { ApolloDriver } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-// import { AppService } from './app.service';
-import { PrismaService } from './prisma.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { PokemonModule } from './pokemon/pokemon.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [PrismaService],
+  imports: [
+    PokemonModule,
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+      driver: ApolloDriver,
+    }),
+  ],
 })
 export class AppModule {}
