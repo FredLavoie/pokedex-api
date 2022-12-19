@@ -7,7 +7,7 @@ export class PokemonService {
   constructor(private prisma: PrismaService) {}
 
   // Get a single pokemon
-  async pokemon(id: string): Promise<Pokemon | null> {
+  async getPokemon(id: string): Promise<Pokemon | null> {
     return this.prisma.pokemon.findUnique({
       where: {
         id: parseInt(id),
@@ -16,7 +16,7 @@ export class PokemonService {
   }
 
   // Get multiple pokemons
-  async pokemons(): Promise<Pokemon[]> {
+  async getAllPokemons(): Promise<Pokemon[]> {
     return this.prisma.pokemon.findMany({});
   }
 }
