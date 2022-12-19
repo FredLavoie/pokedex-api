@@ -28,3 +28,100 @@ Follow the steps outlined below to get this API up and running on your local mac
 
 - run `yarn start` to startup the API server
 - in a browser window, go to `localhost:3000/graphql/` to make queries
+
+#### Sample queries
+
+Fetch all pokemon:
+
+```graphql
+{
+  pokemons {
+    id
+    name {
+      english
+    }
+    image
+  }
+}
+```
+
+Fetch specific pokemon:
+
+```
+{
+  pokemon(id: 30) {
+    id
+    type
+    name {
+      english
+    }
+  }
+}
+```
+
+Fetch all teams:
+
+```
+{
+  teams {
+    id
+    name
+    pokemonIds
+  }
+}
+```
+
+Fetch specific team:
+
+```
+{
+  team(id: 4) {
+    id
+    name
+    pokemonIds
+  }
+}
+```
+
+Create team:
+
+```
+mutation createTeam {
+  createTeam(input: {
+    name: "Best team!"
+    pokemonIds: ["21", "255", "800", "44", "39"]
+  }) {
+    id
+    name
+    pokemonIds
+    createdAt
+  }
+}
+```
+
+Update team:
+
+```
+mutation updateTeam {
+  updateTeam(input: {
+    id: "1"
+    name: "Updated team name"
+  }) {
+    id
+    name
+    pokemonIds
+    createdAt
+  }
+}
+```
+
+Delete team:
+
+```
+mutation deleteTeam {
+  deleteTeam(id: "3") {
+    id
+    name
+  }
+}
+```
