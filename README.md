@@ -47,7 +47,7 @@ Fetch all pokemon:
 
 Fetch specific pokemon:
 
-```
+```graphql
 {
   pokemon(id: 30) {
     id
@@ -61,7 +61,7 @@ Fetch specific pokemon:
 
 Fetch all teams:
 
-```
+```graphql
 {
   teams {
     id
@@ -73,7 +73,7 @@ Fetch all teams:
 
 Fetch specific team:
 
-```
+```graphql
 {
   team(id: 4) {
     id
@@ -85,12 +85,11 @@ Fetch specific team:
 
 Create team:
 
-```
+```graphql
 mutation createTeam {
-  createTeam(input: {
-    name: "Best team!"
-    pokemonIds: ["21", "255", "800", "44", "39"]
-  }) {
+  createTeam(
+    input: { name: "Best team!", pokemonIds: ["21", "255", "800", "44", "39"] }
+  ) {
     id
     name
     pokemonIds
@@ -101,12 +100,9 @@ mutation createTeam {
 
 Update team:
 
-```
+```graphql
 mutation updateTeam {
-  updateTeam(input: {
-    id: "1"
-    name: "Updated team name"
-  }) {
+  updateTeam(input: { id: "1", name: "Updated team name" }) {
     id
     name
     pokemonIds
@@ -117,7 +113,7 @@ mutation updateTeam {
 
 Delete team:
 
-```
+```graphql
 mutation deleteTeam {
   deleteTeam(id: "3") {
     id
