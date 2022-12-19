@@ -1,0 +1,32 @@
+type Pokemon {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  name: PokemonName!
+  type: [String]!
+  base: PokemonBase!
+  image: String
+}
+
+directive @fetch(from: String!) on FIELD_DEFINITION
+
+type PokemonBase {
+  HP: Int
+  Attack: Int
+  Defense: Int
+  SpAttack: Int @fetch(from: "Sp. Attack")
+  SpDefense: Int @fetch(from: "Sp. Defense")
+  Speed: Int
+}
+
+type PokemonName {
+  english: String
+  japanese: String
+  chinese: String
+  french: String
+}
+
+type Query {
+  pokemons: [Pokemon!]!
+  pokemon(id: ID!): Pokemon
+}
