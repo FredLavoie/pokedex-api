@@ -7,6 +7,7 @@ type Pokemon {
   base: PokemonBase!
   image: String
 }
+
 directive @fetch(from: String!) on FIELD_DEFINITION
 
 type PokemonBase {
@@ -28,8 +29,4 @@ type PokemonName {
 type Query {
   pokemons: [Pokemon!]!
   pokemon(id: ID!): Pokemon
-}
-
-type Sequence {
-  Pokemons(first: Int): [Pokemon]
 }

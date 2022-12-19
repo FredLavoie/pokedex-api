@@ -16,12 +16,7 @@ export class PokemonService {
   }
 
   // Get multiple pokemons
-  async pokemons(page?: string): Promise<Pokemon[]> {
-    console.log('*** page: ', page);
-    const skip = page ? (Number(page) - 1) * 50 : 0;
-    return this.prisma.pokemon.findMany({
-      take: 50,
-      skip: skip,
-    });
+  async pokemons(): Promise<Pokemon[]> {
+    return this.prisma.pokemon.findMany({});
   }
 }

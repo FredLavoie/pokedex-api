@@ -6,9 +6,8 @@ export class PokemonResolvers {
   constructor(private readonly pokemonService: PokemonService) {}
 
   @Query('pokemons')
-  async pokemons(@Args('page') page?: string) {
-    console.log('*** page in resolvers: ', page);
-    return this.pokemonService.pokemons(page);
+  async pokemons() {
+    return this.pokemonService.pokemons();
   }
 
   @Query('pokemon')
